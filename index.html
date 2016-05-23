@@ -34,6 +34,7 @@
     <nav id="c-menu--slide-left" class="c-menu c-menu--slide-left">
       <button class="c-menu__close">&larr; Close Menu</button>
       <ul class="c-menu__items">
+        <li class="c-menu__item" id="clearScreenButton"><h2><a href="#" class="c-menu__link">Clear Screen</a></h2></li>
         <li class="c-menu__item" id="walkerRmButton"><h2><a href="#" class="c-menu__link">Stop A Walker</a></h2></li>
         <li class="c-menu__item" id="walkerAddButton"><h2><a href="#" class="c-menu__link">Add A Walker</a></h2></li>
       </ul>
@@ -60,6 +61,7 @@
 var slideLeftBtn = document.querySelector('#c-button--slide-left');
 var addAWalker = document.getElementById("walkerAddButton");
 var rmAWalker = document.getElementById("walkerRmButton");
+var clrScreen = document.getElementById("clearScreenButton");
 
 slideLeftBtn.addEventListener('click', function(e) {
   e.preventDefault;
@@ -74,6 +76,11 @@ addAWalker.addEventListener('click', function(e) {
 rmAWalker.addEventListener('click', function(e) {
   e.preventDefault;
   deleteOldestWalker();
+});
+
+clrScreen.addEventListener('click', function(e) {
+  e.preventDefault;
+  clearScreenAndWalkers();
 });
     </script>
 </body>

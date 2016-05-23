@@ -54,11 +54,11 @@ function displaySpace(walkers) {
       cell.style.background = wlk.pcolor;
     }
   }
-  if(wlk.needclear === 1){
+  /*if(wlk.needclear === 1){
     row = table.rows[wlk.clearposition[1]];
     cell = row.cells[wlk.clearposition[0]];
     cell.style.background = wlk.bcolor;
-  }
+  }*/
 }
 
 
@@ -158,7 +158,7 @@ function createInitialWalkers(numWalkers){
     if(walkerArray.length >=7)
       walkerArray.pop();
     easel.selector++;
-    walkerArray.push(instantiateWalker(easel.wcolors[easel.selector%7],easel.wpcolors[easel.selector%7]));
+    walkerArray.unshift(instantiateWalker(easel.wcolors[easel.selector%7],easel.wpcolors[easel.selector%7]));
   }
   return walkerArray;
 }
@@ -196,7 +196,7 @@ function handleWalkers(){
     deleteOldestWalker();
   var userLeadColor = "#"+document.getElementById("leadColor").value; 
   var userTrailColor = "#"+document.getElementById("trailColor").value; 
-  globalwalkers.push(instantiateWalker(userLeadColor,userTrailColor));
+  globalwalkers.unshift(instantiateWalker(userLeadColor,userTrailColor));
   runProgram(globalwalkers);
 }
 
@@ -211,7 +211,24 @@ function deleteOldestWalker(){
   for(var pspace of wlk.previouspositions){
     row = table.rows[pspace[1]];
     cell = row.cells[pspace[0]];
-    cell.style.background = wlk.pcolor;
+      cell.style.background = wlk.pcolor;
   }
   globalwalkers.pop();
+}
+
+function clearScreenAndWalkers()
+{
+  var row, cell;
+  stopProgramLoop();
+  var table = document.getElementById("space");
+  while(globalwalkers.length > 0){
+    deleteOldestWalker();
+  }
+  for (var i = 0; i < getHeight(); i += 1) {
+    for (var j = 0; j < getWidth(); j += 1) {
+      row = table.rows[i];
+      cell = row.cells[j];
+      cell.style.background = easel.bgcolor;
+    }
+  }
 }

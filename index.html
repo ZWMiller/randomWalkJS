@@ -1,0 +1,80 @@
+<html>
+  <head>
+    <style>
+    body {
+      background-color: #333333;
+    }
+    .footer{
+      width:100%;
+      position:fixed;
+      bottom:0px;
+      color: white;
+    }
+    </style>
+
+    <script type="text/javascript" src="randomWalk.js" ></script>
+    <script src="jscolor.js"></script>
+
+    <link rel="stylesheet" href="menustyle.css">
+  </head>
+
+  <body>
+    <div id="o-wrapper" class="o-wrapper">
+      <header>
+        <div class="c-buttons">
+          <button id="c-button--slide-left" class="c-button"></button>
+        </div>
+      </header>
+
+      <table id="space" border="0" cellspacing="1" cellpadding="0">
+      </table>
+      <div id=footer class=footer><p><font size="1">    &copy; Z.W. Miller - 2016</font></p></div>
+    </div><!-- o-wrapper -->
+
+    <nav id="c-menu--slide-left" class="c-menu c-menu--slide-left">
+      <button class="c-menu__close">&larr; Close Menu</button>
+      <ul class="c-menu__items">
+        <li class="c-menu__item" id="walkerRmButton"><h2><a href="#" class="c-menu__link">Stop A Walker</a></h2></li>
+        <li class="c-menu__item" id="walkerAddButton"><h2><a href="#" class="c-menu__link">Add A Walker</a></h2></li>
+      </ul>
+      Leader Color: <input class="jscolor" value="00E3E0" id="leadColor">
+      Trail Color: <input class="jscolor" value="1AABA9" id="trailColor">
+
+    </nav><!-- /c-menu slide-left -->
+    <div id="c-mask" class="c-mask"></div><!-- /c-mask -->
+
+    <!-- menus script -->
+    <script src="menu.js"></script>
+    <script>
+
+/**
+* Slide left instantiation and action.
+ */
+    var slideLeft = new Menu({
+      wrapper: '#o-wrapper',
+      type: 'slide-left',
+      menuOpenerClass: '.c-button',
+      maskId: '#c-mask'
+    });
+
+var slideLeftBtn = document.querySelector('#c-button--slide-left');
+var addAWalker = document.getElementById("walkerAddButton");
+var rmAWalker = document.getElementById("walkerRmButton");
+
+slideLeftBtn.addEventListener('click', function(e) {
+  e.preventDefault;
+  slideLeft.open();
+});
+
+addAWalker.addEventListener('click', function(e) {
+  e.preventDefault;
+  addUserWalker();
+});
+
+rmAWalker.addEventListener('click', function(e) {
+  e.preventDefault;
+  deleteOldestWalker();
+});
+    </script>
+</body>
+</html>

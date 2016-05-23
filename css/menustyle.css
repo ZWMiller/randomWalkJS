@@ -605,7 +605,7 @@ body.has-active-menu {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background-image: url( 'menubutton.png' );
+  background-image: url( '../img/menubutton.png' );
   background-size: 30px 30px;
   height: 30px;  
   width: 30px;
@@ -614,7 +614,7 @@ body.has-active-menu {
 }
 
 .c-button:hover{
-  background-image: url( 'menubutton_hover.png' );
+  background-image: url( '../img/menubutton_hover.png' );
   background-size: 30px 30px;
   height: 30px;  
   width: 30px;

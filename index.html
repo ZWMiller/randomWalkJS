@@ -2,9 +2,9 @@
   <head>
     <link rel="icon" type="image/png" href="img/favicon.png" sizes="32x32">
     <style>
-    body {
-      background-color: #333333;
-    }
+body {
+  background-color: #333333;
+}
     .footer{
       width:100%;
       position:fixed;
@@ -36,13 +36,16 @@
       <button class="c-menu__close">&larr; Close Menu</button>
       <ul class="c-menu__items">
         <li class="c-menu__item" id="clearScreenButton"><h2><a href="#" class="c-menu__link">Clear Screen</a></h2></li>
+        <li class="c-menu__item" id="toggleSpeedButton"><h2><a href="#" class="c-menu__link">Toggle Walk Pace</a></h2></li>
         <li class="c-menu__item" id="walkerRmButton"><h2><a href="#" class="c-menu__link">Stop A Walker</a></h2></li>
         <li class="c-menu__item" id="walkerAddButton"><h2><a href="#" class="c-menu__link">Add A Walker</a></h2></li>
       </ul>
       Leader Color: <input class="jscolor" value="00E3E0" id="leadColor">
       Trail Color: <input class="jscolor" value="1AABA9" id="trailColor">
       <br/>
-      <br/>
+      <ul class="c-menu__items">
+        <li class="c-menu__item" id="mapButton"><h2><a href="#" class="c-menu__link">Random Map Builder</a></h2></li>
+      </ul>
       <center><a href="https://github.com/zaglamir/randomWalkJS"><img src="img/GitHub-Mark.png" alt="GitHub Logo" width="50%" height="50%" align="middle"/></a></center>
 
     </nav><!-- /c-menu slide-left -->
@@ -66,6 +69,8 @@ var slideLeftBtn = document.querySelector('#c-button--slide-left');
 var addAWalker = document.getElementById("walkerAddButton");
 var rmAWalker = document.getElementById("walkerRmButton");
 var clrScreen = document.getElementById("clearScreenButton");
+var mapMaker = document.getElementById("mapButton");
+var speedButton = document.getElementById("toggleSpeedButton");
 
 slideLeftBtn.addEventListener('click', function(e) {
   e.preventDefault;
@@ -86,6 +91,17 @@ clrScreen.addEventListener('click', function(e) {
   e.preventDefault;
   clearScreenAndWalkers();
 });
+
+speedButton.addEventListener('click', function(e) {
+  e.preventDefault;
+  toggleWalkSpeed();
+});
+
+mapMaker.addEventListener('click', function(e) {
+  e.preventDefault;
+  clearScreenAndWalkers();
+  startMapWalkers();
+});
     </script>
-</body>
+  </body>
 </html>

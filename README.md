@@ -22,8 +22,10 @@ to:
    the object.
 
 Menu on the top left allows the ability to create different colored walkers,
-remove the oldest walkers, and clear the screen.
+remove the oldest walkers, change the walking speed, enter map mode (defaults
+to green and blue walkers and a clean slate) and clear the screen.
 
 Enjoy.
 
 ![alt text](img/exampleOutput.png "Example Output")
+![alt text](img/mapmode.png "Map Mode")
